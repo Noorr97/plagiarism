@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup4
+from bs4 import BeautifulSoup
 import trafilatura
 import random
 import time
@@ -72,7 +72,7 @@ def google_search(query):
     )
 
     if response.status_code == 200:
-        soup = BeautifulSoup4(response.text, 'html.parser')
+        soup = BeautifulSoup(response.text, 'html.parser')
         search_results = soup.find_all('h3')
         for idx, result in enumerate(search_results, start=1):
             link = result.find_parent('a')
